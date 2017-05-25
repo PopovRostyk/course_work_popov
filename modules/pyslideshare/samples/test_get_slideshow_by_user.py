@@ -11,12 +11,12 @@ json = obj.get_slideshow_by_user(username_for='desistartups')
 
 if not json:
     import sys
-    print >> sys.stderr, 'No response. Perhaps slideshare down?'
+    print('No response. Perhaps slideshare down?', file=sys.stderr)
     sys.exit(1)
     
-print 'Total slideshows by this user : ', json.User.count
+print('Total slideshows by this user : ', json.User.count)
 slideshows = json.User.Slideshow
 for show in slideshows:
-    print 'Name : %s, Views : %s' % (show.Title, show.Views)
+    print('Name : %s, Views : %s' % (show.Title, show.Views))
     
     

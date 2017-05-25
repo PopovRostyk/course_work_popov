@@ -10,8 +10,8 @@ obj = pyslideshare.pyslideshare(locals(), verbose=False)
 json = obj.get_slideshow(slideshow_id=436333)
 if not json:
     import sys
-    print('No response. Perhaps slideshare down?', file=sys.stderr)
+    print >> sys.stderr, 'No response. Perhaps slideshare down?'
     sys.exit(1)
 
 show = json.Slideshows.Slideshow
-print('Name : %s, Permalink : %s' % (show.Title, show.Permalink))
+print 'Name : %s, Permalink : %s' % (show.Title, show.Permalink)

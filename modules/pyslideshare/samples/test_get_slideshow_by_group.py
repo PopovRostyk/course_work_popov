@@ -18,5 +18,3 @@ print('Total slideshows by this group : ', json.Group.count)
 slideshows = json.Group.Slideshow
 for show in slideshows:
     print('Name : %s, Tags : %s' % (show.Title, show.Tags))
-    
-    

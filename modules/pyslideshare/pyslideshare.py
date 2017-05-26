@@ -16,7 +16,8 @@
 # Slideshare documentation - http://www.slideshare.net/developers/documentation
 
 import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse
-import mimetools, mimetypes
+import mimetypes
+import mimetools
 import os, stat, time, sha, sys
 from io import StringIO
 
@@ -443,4 +444,3 @@ def main():
     
 if __name__ == "__main__":
     main()
-    

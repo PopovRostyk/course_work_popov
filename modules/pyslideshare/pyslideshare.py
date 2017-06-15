@@ -15,13 +15,13 @@
 
 import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse
 import mimetypes
-import mimetools
-import os, stat, time, sha, sys
+import email.generator
+import os, stat, time, sys
 from io import StringIO
 
 import socket
 
-from .xml2dict import fromstring
+from xml2dict import fromstring
 
 # Sometimes slideshare doesn't response quick enough!
 # timeout in seconds
@@ -29,12 +29,11 @@ timeout = 15
 socket.setdefaulttimeout(timeout)
 
 service_url_dict = {
-    'slideshow_by_user' : 'http://www.slideshare.net/api/1/get_slideshow_by_user',
-    'get_slideshow' : 'http://www.slideshare.net/api/1/get_slideshow',
-    'slideshow_by_tag' : 'http://www.slideshare.net/api/1/get_slideshow_by_tag',
-    'slideshow_by_group' : 'http://www.slideshare.net/api/1/get_slideshow_from_group',
-    'upload_slideshow' : 'http://www.slideshare.net/api/1/upload_slideshow',
-    'delete_slideshow' : 'http://www.slideshare.net/api/1/delete_slideshow'
+    'slideshow_by_user' : 'https://www.slideshare.net/api/1/get_slideshow_by_user',
+    'get_slideshow' : 'https://www.slideshare.net/api/1/get_slideshow',
+    'slideshow_by_tag' : 'https://www.slideshare.net/api/1/get_slideshow_by_tag',
+    'upload_slideshow' : 'https://www.slideshare.net/api/1/upload_slideshow',
+    'delete_slideshow' : 'https://www.slideshare.net/api/1/delete_slideshow'
 }
 
 class Callable:
@@ -78,9 +77,9 @@ class MultipartPostHandler(urllib.request.BaseHandler):
             request.add_data(data)       
         return request
 
-    def multipart_encode(vars, files, boundary = None, buf = None):
+    def multipart_encode(self, vars, files, boundary = None, buf = None):
         if boundary is None:
-            boundary = mimetools.choose_boundary()
+            boundary = email.generator._make_boundary()
         if buf is None:
             buf = StringIO()
         for(key, value) in vars:
@@ -138,7 +137,6 @@ class pyslideshare:
         tmp_params_dict = {
                         'api_key' : self.params['api_key'],
                         'ts' : ts,
-                        'hash' : sha.new(self.params['secret_key'] + str(ts)).hexdigest()                       
         }
         # Add method specific parameters to the dict.
         for arg in args:
@@ -167,7 +165,7 @@ class pyslideshare:
         makes service call and returns JSON output
         """
         params = self.get_ss_params(**args)
-        data = urllib.request.urlopen(service_url_dict[service_url], params).read()
+        data = urllib.request.urlopen(service_url_dict[service_url]).read()
         json = self.parsexml(data)
         return self.return_data(json)
 
@@ -328,17 +326,6 @@ class pyslideshare:
             sys.exit(1)
         return self.make_call('slideshow_by_tag', tag=tag, offset=offset, limit=limit)
     
-    def get_slideshow_by_group(self, group_name=None, offset=None, limit=None):
-        """
-        Method to get slideshows by group
-        Requires: group_name
-        Optional: offset, limit
-        """
-        if not group_name:
-            print('Group name is needed for this call.', file=sys.stderr)
-            sys.exit(1)
-        return self.make_call('slideshow_by_group', group_name=group_name, offset=offset, limit=limit)
-    
     def upload_slideshow(self, username=None, password=None,
                          slideshow_title=None, slideshow_srcfile=None, slideshow_description=None,
                          slideshow_tags=None, make_src_public='Y', make_slideshow_private='N',
@@ -405,40 +392,3 @@ make_slideshow_private, generate_secret_url, allow_embeds, share_with_contacts
     ##############################
     # End of unsupported list
     ##############################
-    
-def main():
-    # Slideshare username needed for upload
-    username = ''
-    # Slideshare password
-    password = ''
-    # Slideshare api. Apply for one here - http://www.slideshare.net/developers/applyforapi
-    api_key = ''
-    # Slideshare shared secret key
-    secret_key = ''
-    proxy = None
-    
-    """
-    If you want to use a proxy server, pass a dict like the one below to the constructor.
-    proxy = {
-        'host' : '',
-        'port' : '',
-        'username' : '',
-        'password' : ''
-    }
-    """
-    # Have all the secure keys in a file called localsettings.py
-    try:
-        from localsettings import username, password, api_key, secret_key, proxy
-    except:
-        pass
-    obj = pyslideshare(locals(), verbose=False)
-    #print obj.get_slideshow_by_user()
-
-    #print obj.get_slideshow(slideshow_id=436333)
-    #print obj.get_slideshow_by_group(group_name='friendfeed', limit=2)
-    #print obj.upload_slideshow(username=username, password=password, slideshow_srcfile='test.ppt',
-    #                           slideshow_title='pyslideshare works!')
-    obj.download_slideshow(slideshow_id=438245, username=username, password=password)
-    
-if __name__ == "__main__":
-    main()

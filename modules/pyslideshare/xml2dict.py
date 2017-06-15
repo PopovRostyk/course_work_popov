@@ -4,7 +4,7 @@
 #
 
 import xml.etree.ElementTree as ET
-from .object_dict import object_dict 
+from object_dict import object_dict
 
 def __parse_node(node):
     tmp = object_dict()

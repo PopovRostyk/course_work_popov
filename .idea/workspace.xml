@@ -23,39 +23,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pyslideshare.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/pyslideshare/pyslideshare.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="353" column="2" lean-forward="false" selection-start-line="353" selection-start-column="2" selection-end-line="353" selection-end-column="2" />
+            <state relative-caret-position="432">
+              <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
-                <element signature="e#640#733#0" expanded="true" />
-                <element signature="e#4462#5431#0" expanded="false" />
-                <element signature="e#5503#6321#0" expanded="false" />
-                <element signature="e#6360#6562#0" expanded="false" />
-                <element signature="e#6622#6967#0" expanded="false" />
-                <element signature="e#7028#7539#0" expanded="false" />
-                <element signature="e#7586#7914#0" expanded="false" />
-                <element signature="e#7951#8419#0" expanded="false" />
-                <element signature="e#8491#9333#0" expanded="false" />
-                <element signature="e#9454#11868#0" expanded="false" />
-                <element signature="e#11925#12120#0" expanded="false" />
-                <element signature="e#12327#12776#0" expanded="false" />
-                <element signature="e#12842#13148#0" expanded="false" />
-                <element signature="e#13233#13548#0" expanded="false" />
-                <element signature="e#13911#15228#0" expanded="false" />
-                <element signature="e#15959#16790#0" expanded="false" />
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="localsettings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/localsettings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="39" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,6 +67,7 @@
         <option value="$PROJECT_DIR$/modules/pyslideshare/pyslideshare.py" />
         <option value="$PROJECT_DIR$/modules/pyslideshare/functions.py" />
         <option value="$PROJECT_DIR$/modules/pyslideshare/main.py" />
+        <option value="$PROJECT_DIR$/main/main.py" />
       </list>
     </option>
   </component>
@@ -831,6 +807,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/pyslideshare/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localsettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/pyslideshare/pyslideshare.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -856,19 +848,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/pyslideshare/main.py">
+    <entry file="file://$PROJECT_DIR$/main/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/localsettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="39" />
-          <folding />
+          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -19,11 +19,15 @@ functions_list = {
 
 def make_call(commands_list):
     string_of_commands = ', '.join([keys for keys in commands_list])
-    command = input('Choose operation: ' + string_of_commands + '\n')
-    try:
-        commands_list[command](obj)
-    except KeyError:
-        print('Operation not in list')
+    print("'smth' and 'smth' is correct")
+    command_input = input('Choose operation: ' + string_of_commands + '\n')
+    command_input = command_input.replace(' ', '').split('and')
+    for commands in command_input:
+        try:
+            commands_list[commands](obj)
+        except KeyError:
+            print('Incorrect command.')
+            continue
 
 
 
@@ -36,4 +40,4 @@ def main():
         else:
             break
 
-main()
+main(

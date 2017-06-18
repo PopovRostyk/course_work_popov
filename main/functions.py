@@ -7,6 +7,7 @@ requires_for_uploading =['username', 'password',
 def get_by_tag(obj):
     tag = input('which presentation tag are you looking for?\n')
     number = input('How much presentation you want to see?\n')
+    if number = 
     obj.get_slideshow_by_tag(limit=number, tag=tag)
 def count_by_tag(obj):
     pass

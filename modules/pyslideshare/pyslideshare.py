@@ -33,7 +33,7 @@ service_url_dict = {
     'get_slideshow' : 'https://www.slideshare.net/api/1/get_slideshow',
     'slideshow_by_tag' : 'https://www.slideshare.net/api/1/get_slideshow_by_tag',
     'upload_slideshow' : 'https://www.slideshare.net/api/1/upload_slideshow',
-    'delete_slideshow' : 'https://www.slideshare.net/api/1/delete_slideshow'
+    'delete_slideshow' : 'https://www.slideshare.net/api/1/delete_slideshow',
 }
 
 class Callable:
@@ -392,3 +392,8 @@ make_slideshow_private, generate_secret_url, allow_embeds, share_with_contacts
     ##############################
     # End of unsupported list
     ##############################
+
+from localsettings import username, password, api_key, secret_key
+keys = {'api_key': api_key, 'secret_key': secret_key}
+obj = pyslideshare(params_dict=keys)
+

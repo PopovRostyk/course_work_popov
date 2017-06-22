@@ -15,16 +15,26 @@ def get_by_tag(obj):
         obj.get_slideshow_by_tag(limit=number, tag=tag)
     else:
         obj.get_slideshow_by_tag(tag=tag)
+
+
 def count_by_tag(obj):
     pass
+
+
 def get_by_user(obj):
     number = input('How much presentation you want to see?\n')
     obj.get_slideshow_by_user(limit=number)
+
+
 def count_by_user(obj):
     pass
+
+
 def download_slideshow(obj):
     id = input('Which slideshow you want to download?(id required)\n')
     obj.download_slideshow(slideshow_id = id)
+
+
 def upload_slideshow(obj):
     upload_params = {}
     print('in make_src_public, make_slideshow_private,'+
@@ -42,6 +52,8 @@ def upload_slideshow(obj):
                          allow_embeds=upload_params['allow_embeds'],
                          share_with_contacts=upload_params['share_with_contacts']
                          )
+
+
 def delete_slideshow(obj):
-    id = input('Write slideshowid you want to delte: ')
+    id = input('Write slideshow id you want to delete: ')
     obj.detele_slideshow(slideshow_id=id)
